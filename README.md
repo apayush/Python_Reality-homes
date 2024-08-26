@@ -11,3 +11,9 @@ On the user side, Reality Homes offers a user-friendly interface that allows res
 
 Overall, Reality Homes is designed to create a seamless experience for managing and discovering properties, leveraging an intuitive interface and comprehensive functionality to meet the needs of both administrators and residents.
 
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/reality_homes.git
