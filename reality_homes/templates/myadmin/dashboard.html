@@ -1,0 +1,93 @@
+
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>All Prpperties</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-inverse">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Property Name</th>
+                            <th>Details</th>
+                            <th>Price</th>
+                            <th>Contact No</th>
+                            <th>Address</th>
+                            <th>View Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for row in result %}
+                        <tr>
+                            <td>{{row.id}}</td>
+                            
+                            <td>
+                                <img src="/media/upload/{{row.property_image}}" alt="listing Image" style="height:275px;width: 345px;">
+                            </td>
+
+                            <td>{{row.property_name}} &nbsp {{row.sub_property_type}}</td>
+                            <td>{{row.rooms}}BHK  Area : {{row.area.area}} {{row.sub_property_type}} For {{row.property_for}}</td>
+                            <td><h6>₹ {{row.price}} Lac</h6></td>
+                            <td>{{row.contact}}</td>
+                            <td>{{row.address}}</td>
+                            <td><a href="/myadmin/view_property_details/{{row.id}}">View Details</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}
+
+<!-- 
+                        <div class="title">
+                            <h6 style="color:black; font-weight: bold; align-content: center; text-align: center; height: 30px; font-size: 30px">{{result.property_name}}</h6>
+                            <h5  style="color:black; font-weight: bold; align-content: center; text-align: center;font-size: 20px">{{result.sub_property_type}}</h5>
+                            <table>
+                                <tr>
+                                    <td>{{result.rooms}}BHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Area : {{result.area.area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{result.sub_property_type}} For {{result.property_for}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address : {{result.address}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                
+                    <td style="height: 30px;">
+                        <h6 style="color:black; font-weight: bold; align-content: center; text-align: center; height: 30px; font-size: 30px">₹ {{result.price}} /- </h6>
+                    
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Contact For More Information :</td>
+                                <td>
+                                    <h5 style="color:black; font-weight: bold; align-content: center; text-align: center;">{{result.contact}}</h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr> -->

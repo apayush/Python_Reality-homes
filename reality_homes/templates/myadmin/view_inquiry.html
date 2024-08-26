@@ -1,0 +1,50 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>All Inquiries</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-inverse">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for row in result_inquiry %}
+                        <tr>
+                            <td>{{row.id}}</td>
+                            <td>{{row.firstname}} {{row.lastname}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.phone}}</td>
+                            <td>{{row.subject}}</td>
+                            <td>{{row.message}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}

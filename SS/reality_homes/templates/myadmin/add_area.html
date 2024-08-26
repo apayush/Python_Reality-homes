@@ -1,0 +1,45 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Add Area</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+
+        <form method="post" action="/myadmin/area_store">
+            {% csrf_token %}
+        	<div class="form-row" style="padding-top:30px;padding-bottom: 30px;">
+        		<div class="col-md-4 mx-auto">
+                    <!-- <label for="inputState">Add City</label> -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="area" name="area" placeholder="Add Area">
+                    </div>
+                    <div class="form-group">
+
+	                    <select id="inputState" class="form-control" name="city" id="city">
+	                        <option selected>Select City</option>
+	                        {% for row in result %}
+	                        <option value="{{row.id}}">{{row.citys}}</option>
+	                        {% endfor %}
+	                    </select>
+
+                    </div>
+                    <div class="align-item-center" align="center">
+                        <button type="submit" class="btn  btn-primary">Submit</button>
+                    </div>
+                </div>
+
+        	</div>
+        </form>
+    </div>
+</div>
+</section>
+
+{% endblock %}

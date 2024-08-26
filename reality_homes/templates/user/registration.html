@@ -1,0 +1,101 @@
+{% extends 'user/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="fioxen-add-listing pt-120 pb-120">
+<div class="container">
+<form method="post" action="/user/rstore" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="add-listing-form general-listing-form mb-60 wow fadeInUp">
+                <h4 class="title">Registration</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="First Name" name="fname" id="fname" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="Last Name" name="lname" id="lname" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="Email" name="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="Contact" name="contact" id="contact" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-check" style="font-size: 20px;line-height: 3;">
+                           <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" style="height:19px;" />
+                                <label class="form-check-label" for="gender">Male</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" style="height:19px;"/>
+                                <label class="form-check-label" for="gender">Female</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="gender" value="Other" style="height:19px;"/>
+                                <label class="form-check-label" for="gender">Other</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form_group">
+                            <textarea class="form_control" placeholder="Address" name="address" id="address"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="text" class="form_control" placeholder="Username" name="username" id="username" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="password" class="form_control" placeholder="Password" name="password" id="password" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="line-height: 1.5;">
+                        <div class="form_group" style="font-size: 15px;">
+                            <label class="d-block text-uppercase">
+                                Upload Your Photo
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="file" name="image" id="image" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <input type="password" class="form_control" placeholder="Confirm Password" name="cpassword" id="cpassword" required>
+                        </div>
+                    </div>
+
+                </div>
+
+            <div class="button text-center">
+                <button class="main-btn">Register</button>
+            </div>
+
+            </div>
+            
+        </div>
+    </div>
+</form>
+</div>
+</section>
+
+
+{% endblock %}

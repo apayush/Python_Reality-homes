@@ -1,0 +1,94 @@
+{% load static %}
+
+<header class="header-area header-area-one">
+    <div class="header-navigation">
+        <div class="container-fluid">
+            <div class="primary-menu">
+                <div class="row">
+                    <div class="col-lg-2 col-5">
+                        <div class="site-branding">
+                            <a href="/user/home" class="brand-logo"><img src="{% static 'user/assets/images/logo/logo-7.png' %}" alt="Brand Logo" height="50" width="170"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-2">
+                        <div class="nav-menu">
+                            <div class="navbar-close"><i class="ti-close"></i></div>
+                            <nav class="main-menu">
+                                <ul>
+                                    <li class="menu-item"><a href="/user/home">Home</a>
+                                    </li>
+                                    <li class="menu-item"><a href="/user/about">About us</a></li>
+                                    {% if request.user.is_authenticated %}
+                                    <li class="menu-item"><a href="/user/feedback">Feedback</a></li>
+                                    <!-- <li class="menu-item"><a href="/user/view_my_property">My Property</a></li> -->
+                                    <li class="menu-item has-children"><a href="#">Property</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item"><a href="/user/add_property">Add Property</a></li>
+                                            <li class="menu-item"><a href="/user/all_properties">All Properties</a></li>
+                                            <li class="menu-item"><a href="/user/view_my_property">My Property</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-item has-children"><a href="#">Request</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item"><a href="/user/view_my_request">My request</a></li>
+                                            <li class="menu-item"><a href="/user/view_request">User Request</a></li>
+                                        </ul>
+                                    </li>
+                                    <!-- <li class="menu-item"><a href="/user/view_request">User Request</a></li> -->
+
+                                {% else %}
+
+                                    <li class="menu-item"><a href="/user/contact">Contact</a></li>
+
+                                {% endif %}
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    {% if request.user.is_authenticated %}
+
+                    <div class="col-lg-4 col-5">
+                        <div class="header-right-nav">
+                            <ul class="d-flex align-items-center">
+                                <li class="user-btn">
+                                    <a href="/user/change_password" class="icon"><i class="fa fa-key"></i></a>
+                                </li>
+
+                                <li class="user-btn">
+                                    <a href="/user/view_profile" class="icon" title="Profile"><i class="flaticon-avatar"></i></i></a>
+                                </li>
+                                <li class="user-btn">
+                                    <a href="/user/logout" class="icon"><i class="fa fa-sign-out"></i></a>
+                                </li>
+
+
+                                <!-- <li class="hero-nav-btn">
+                                    <a href="/user/add_property" class="main-btn">Add Property</a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    {% else %}
+
+
+                    <div class="col-lg-4 col-5">
+                        <div class="header-right-nav">
+                            <ul class="d-flex align-items-center">
+                                <li class="user-btn">
+                                    <a href="/user/login" class="icon"><i class="fa fa-sign-in"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    {% endif %}  
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

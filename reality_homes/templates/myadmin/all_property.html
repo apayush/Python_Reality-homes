@@ -1,0 +1,51 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>All Prpperties</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-inverse">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Property Name</th>
+                            <th>Details</th>
+                            <th>Price</th>
+                            <th>Contact No</th>
+                            <th>Address</th>
+                            <th>View Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for row in result %}
+                        <tr>
+                            <td>{{row.id}}</td>
+                            
+                            <td><img src="/media/upload/{{row.property_image}}" alt="listing Image" style="height:275px;width: 345px;"></td>
+                            <td>{{row.property_name}} &nbsp {{row.sub_property_type}}</td>
+                            <td>{{row.rooms}}BHK  Area : {{row.area.area}} {{row.sub_property_type}} For {{row.property_for}}</td>
+                            <td><h6>₹ {{row.price}} Lac</h6></td>
+                            <td>{{row.contact}}</td>
+                            <td>{{row.address}}</td>
+                            <td><a href="/myadmin/view_property/{{row.id}}">View Details</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+{% endblock %}

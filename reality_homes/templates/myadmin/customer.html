@@ -1,0 +1,66 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>{{result.user.first_name}}'s Details</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-inverse">
+                    
+                    <tr>
+                      <td rowspan="9" style="width:350px;">
+                        <img src="/media/upload/{{result.image}}" height="250" width="250">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">ID</td>
+                      <td>{{result.user.id}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">FName</td>
+                      <td>{{result.user.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Lname</td>
+                      <td>{{result.user.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Gender</td>
+                      <td>{{result.gender}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Email</td>
+                      <td>{{result.user.email}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Contact</td>
+                      <td>{{result.contact}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Address</td>
+                      <td>{{result.address}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: bold;">Username</td>
+                      <td>{{result.user.username}}</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}

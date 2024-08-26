@@ -1,0 +1,65 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="hero-area">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="page-title">
+                        <h1 class="title">My Request</h1>
+                        <ul class="breadcrumbs-link">
+                            <li><a href="/customer/home">Home</a></li>
+                            <li class="active">My request</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% for row in result %}
+
+<section class="fioxen-add-listing pt-50 pb-50">
+    <div class="container">
+        <div class="col-lg-8">
+            <div class="listing-list-wrapper">
+                <div class="listing-item listing-list-item-two wow fadeInUp">
+                    <div class="listing-thumbnail">
+                        <img src="/media/upload/{{row.post_property.property_image}}" alt="listing Image" style="height:275px;width: 345px;">
+                        <div class="thumbnail-meta d-flex justify-content-between align-items-center">
+                            <div class="meta-icon-title d-flex align-items-center">
+                                <div class="icon">
+                                    <i class="flaticon-government"></i>
+                                </div>
+                                <div class="title">
+                                    <h6>{{row.post_property.property_name}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listing-content" style="padding-top: 20px;">
+                        <h3 class="title"><a href="listing-details-1.html">{{row.post_property.sub_property_type}}</a></h3>
+                        <h3 class="title">{{row.post_property.rooms}}BHK {{row.post_property.sub_property_type}} For {{row.post_property.property_for}}</h3>
+                        <span class="price">₹ {{row.post_property.price}} Lac<h6>Area : {{row.post_property.area.area}}</h6></span>
+                        <span class="phone-meta">{{row.to_user.user.first_name}} {{row.to_user.user.last_name}}</span>
+                        <div class="listing-meta">
+                            <ul>
+                                <li><span><i class="ti-location-pin"></i>{{row.to_user.contact}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endfor %}
+
+
+{% endblock %}

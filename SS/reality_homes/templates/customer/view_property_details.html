@@ -1,0 +1,93 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- <section class="hero-area">
+	<div class="breadcrumbs-wrapper">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-8">
+	                <div class="page-title">
+	                    <h1 class="title">My Property</h1>
+	                    <ul class="breadcrumbs-link">
+	                        <li><a href="/customer/home">Home</a></li>
+	                        <li class="active">My Proeprty</li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</section> -->
+
+
+
+<section class="fioxen-add-listing mt-120 pb-20">
+	<div class="container">
+		<div class="col-lg-10 mx-auto mb-200">
+			<div class="listing-list-wrapper">
+				<div class="listing-item listing-list-item-two wow fadeInUp">
+				    <div class="listing-thumbnail">
+				        <img src="/media/upload/{{result.property_image}}" alt="listing Image">
+				        <div class="thumbnail-meta d-flex justify-content-between align-items-center">
+				            <div class="meta-icon-title d-flex align-items-center">
+				                <div class="icon">
+				                    <i class="flaticon-government"></i>
+				                </div>
+				                <div class="title">
+				                    <h6 style="color:black">{{result.property_name}}</h6>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				    <div class="listing-content" style="padding-top: 20px;">		
+				        <h3 class="title"><a href="listing-details-1.html">{{result.sub_property_type}}</a></h3>
+				        <h3 class="title">{{result.rooms}}BHK {{result.sub_property_type}} For {{result.property_for}}</h3>
+				        <!-- <div class="ratings">
+				            <ul class="ratings ratings-three">
+				                <li class="star"><i class="flaticon-star-1"></i></li>
+				                <li class="star"><i class="flaticon-star-1"></i></li>
+				                <li class="star"><i class="flaticon-star-1"></i></li>
+				                <li class="star"><i class="flaticon-star-1"></i></li>
+				                <li class="star"><i class="flaticon-star-1"></i></li>
+				                <li><span><a href="#">(02 Reviews)</a></span></li>
+				            </ul>
+				        </div> -->
+				        <span class="price">₹ {{result.price}} Lac<h6>Area : {{result.area.area}}</h6></span>
+				        <span class="phone-meta"><i class="ti-tablet"></i><a href="tel:+982653652-05">{{result.contact}}</a></span>
+				        <div class="listing-meta">
+				            <ul>
+				                <li><span><i class="ti-location-pin"></i>{{result.address}}</span></li>
+				                <!-- <li><span><i class="ti-heart"></i><a href="#">Save</a></span></li> -->
+				            </ul>
+				        </div>
+				    </div>
+				</div>
+			</div>
+<!-- {% for row in result2 %}
+<img src="/media/upload/{{row.image}}" height="200" width="200" class="mt-120">
+{% endfor %} -->
+<div class="listing-slider-one wow fadeInDown pt-50">
+
+        	{% for row in result2 %}
+            <div class="listing-item listing-grid-item-two">
+                <div class="listing-thumbnail">
+                    <img src="/media/upload/{{row.image}}" alt="Listing Image" height="300" width="400">
+                </div>
+            </div> 
+            {% endfor %}
+		</div>
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+{% endblock %}

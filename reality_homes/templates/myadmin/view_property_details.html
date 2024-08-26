@@ -1,0 +1,79 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card">
+        <div class="card-header">
+            <h5>Prpperty Details</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <br>
+       <div class="table-responsive">
+            <table class="table table-inverse">
+                <tbody>
+                <tr>                        
+                    <td>
+                        <img src="/media/upload/{{result.property_image}}" alt="listing Image" height="300" width="400"></td>
+                
+                    <td>
+                        <div class="title">
+                            <h6 style="color:black; font-weight: bold; align-content: center; text-align: center; height: 30px; font-size: 30px">{{result.property_name}}</h6>
+                            <h5  style="color:black; font-weight: bold; align-content: center; text-align: center;font-size: 20px">{{result.sub_property_type}}</h5>
+                            <table>
+                                <tr>
+                                    <td>{{result.rooms}}BHK</td>
+                                </tr>
+                                <tr>
+                                    <td>Area : {{result.area.area}}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{result.sub_property_type}} For {{result.property_for}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Address : {{result.address}}</td>
+                                   <!--  <td>{{result.address}}</td> -->
+                                </tr>
+                            </table>
+                        </div>
+                    </td>
+                
+                    <!-- <td>{{result.property_name}} &nbsp {{result.sub_property_type}}</td> -->
+                    <td style="height: 30px;">
+                        <h6 style="color:black; font-weight: bold; align-content: center; text-align: center; height: 30px; font-size: 30px">₹ {{result.price}} /- </h6>
+                    
+                    <!-- <td>{{result.contact}}</td> -->
+                    
+                    <!-- <td>{{result.rooms}}BHK  Area : {{result.area.area}} {{result.sub_property_type}} For {{result.property_for}}</td> -->
+                    
+                    <!-- <td>{{result.address}}</td> -->
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Contact For More Information :</td>
+                                <td>
+                                    <h5 style="color:black; font-weight: bold; align-content: center; text-align: center;">{{result.contact}}</h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    {% for row in result2 %}
+                        <td>
+                        <div class="listing-item listing-grid-item-two">
+                        <div class="listing-thumbnail">
+                        <img src="/media/upload/{{row.image}}" alt="Listing Image" height="200" width="300">
+                        </div>
+                        </div> 
+                    {% endfor %}
+                    </td>
+                </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+{% endblock %}

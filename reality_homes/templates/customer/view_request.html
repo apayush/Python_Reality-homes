@@ -1,0 +1,82 @@
+{% extends 'customer/common/layout.html' %}
+
+{% block content %}
+
+<section class="hero-area">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="page-title">
+                        <h1 class="title">View Request</h1>
+                        <ul class="breadcrumbs-link">
+                            <li><a href="/customer/home">Home</a></li>
+                            <li class="active">View Request</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-breadcrumbs page-breadcrumbs-one pt-120 pb-70">
+            <div class="container">
+                <div class="breadcrumbs-wrapper-one">
+                	{% for row in result %}
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-md-12">
+                            <div class="listing-info-name">
+                                <div class="info-name d-flex">
+                                    <div class="thumb">
+                                        <img src="/media/upload/{{row.from_user.user.customers.image}}" style="height: 130px; width: 130px;" alt="thumb image">
+                                    </div>
+                                    <div class="content">
+                                        <h3>{{row.from_user.user.first_name}} {{row.from_user.user.last_name}}</h3>
+                                        <p class="tag">{{row.from_user.user.customers.address}}</p>
+                                        <span class="cat-btn">{{row.from_user.user.customers.contact}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-4 col-md-6">
+                            <div class="listing-info-content">
+                                <div class="content">
+                                    <div class="listing-meta">
+                                        <ul>
+                                            <li><span><i class="ti-location-pin"></i>{{row.post_property.property_name}}</span></li>
+                                            <li><span><i class="ti-tablet"></i>{{row.from_user.user.customers.contact}}</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-4 col-md-12">
+                            <div class="listing-info-name">
+                                <div class="info-name d-flex">
+                                    <div class="thumb">
+                                        <img src="/media/upload/{{row.post_property.property_image}}" style="height: 130px; width: 130px;" alt="thumb image">
+                                    </div>
+                                    <div class="content">
+                                        <h3>{{row.post_property.property_name}}</h3>
+                                        <p class="tag">{{row.post_property.property_type}}</p>
+                                        <span class="cat-btn">{{row.post_property.property_for}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6">
+                            <div class="button" title="accept">
+                                <a href="/customer/accept_request/{{row.id}}" class="icon-btn"><i class="ti-share"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock %}

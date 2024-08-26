@@ -1,0 +1,111 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- <section class="hero-area">
+	<div class="breadcrumbs-wrapper">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-8">
+	                <div class="page-title">
+	                    <h1 class="title">My Property</h1>
+	                    <ul class="breadcrumbs-link">
+	                        <li><a href="/customer/home">Home</a></li>
+	                        <li class="active">My Proeprty</li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</section> -->
+
+
+
+
+
+
+
+<section class="listing-grid-area pt-75 pb-110">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="section-title text-center mb-60 wow fadeInUp">
+                    <span class="sub-title">Featured List</span>
+                    <h2>Explore Destination</h2>
+                </div>
+            </div>
+        </div>
+        <div class="listing-slider-one wow fadeInDown">
+
+        	{% for row in result2 %}
+            <div class="listing-item listing-grid-item-two">
+                <div class="listing-thumbnail">
+                    <img src="/media/upload/{{row.image}}" alt="Listing Image" height="300" width="400">
+                </div>
+            </div> 
+            {% endfor %}
+		</div>
+        </div>
+
+        <!-- <div class="col-lg-10 mb-200 container">
+			<div class="listing-list-wrapper">
+				<div class="listing-item listing-list-item-two wow fadeInUp">
+			        <div class="listing-content" style="padding-top: 20px;">		
+					        <h3 class="title"><a href="listing-details-1.html">{{result.sub_property_type}}</a></h3>
+					        <h3 class="title">{{result.rooms}}BHK {{result.sub_property_type}} For {{result.property_for}}</h3>
+					        <span class="price">₹ {{result.price}} Lac<h6>Area : {{result.area.area}}</h6></span>
+					        <span class="phone-meta"><i class="ti-tablet"></i><a href="tel:+982653652-05">{{result.contact}}</a></span>
+					        <div class="listing-meta">
+					            <ul>
+					                <li><span><i class="ti-location-pin"></i>{{result.address}}</span></li>
+					                
+					            </ul>
+					        </div>
+					        {% if request.user.is_authenticated %}
+						    <div class="button mt-30">
+	                    		<button class="main-btn"><a href="/customer/request/{{result.id}}">Send Request</a></button>
+	                		</div>
+	                		{% endif %}
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div class="listing-grid-wrapper container">
+            <div class="row">
+				<div class="col-md-6 col-sm-12">
+                                    <div class="listing-item listing-grid-item-two mb-30 wow fadeInUp">
+                                        <div class="listing-content">
+                                            <h3 class="title">{{result.property_name}}</h3>
+                                            <h3 class="title">{{result.sub_property_type}} For {{result.property_for}}</h3>
+                                            <p>Rooms : {{result.rooms}}</p>
+                                            <p>Price : {{result.price}}</p>
+                                            <p>Facilities : {{result.facility}}</p>
+                                            <p>Square Area : {{result.sq_area}}</p>
+                                            <p>Area : {{result.area.area}}</p>
+                                            
+                                            <div class="listing-meta">
+                                                <ul>
+                                                    <li><span><i class="ti-location-pin"></i>{{result.address}}</span></li>
+                                                </ul>
+                                            </div>
+                                            {% if request.user.is_authenticated %}
+						    				<div class="button mt-30">
+	                    						<button class="main-btn"><a href="/customer/request/{{result.id}}">Send Request</a></button>
+	                						</div>
+	                						{% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+    </div>
+</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+    {% extends 'user/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="hero-area">
+            <div class="hero-wrapper-one">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="hero-content">
+                                <h1 class="wow fadeInUp" wow-data-delay="30mss">Dream House</h1>
+                                <h4 class="wow fadeInDown" wow-data-delay="50ms">Find a home that suits your lifestyle.</h4>
+                                <div class="hero-search-wrapper wow fadeInUp mt-20" wow-data-delay="70ms">
+                                    <form method="post" action="/user/search_with_details">
+                                    	{% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                                <div class="form_group">
+                                                    <select id="city" name="city" class="form-control form-control-lg">
+                                                    	<option>Select City</option>
+						                                {% for row in result %}
+						                                <option value="{{row.id}}">{{row.citys}}</option>
+						                                {% endfor %}
+						                            </select>
+                                                    <!-- <i class="ti-location-pin"></i> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                                <div class="form_group">
+                                                    <!-- <input type="text" class="form_control" placeholder="Area" name="Area" required>
+                                                    <i class="ti-location-pin"></i> -->
+                                                    <select id="area" name="area" class="form-control form-control-lg">
+                                                    	<option>Select Area</option>
+						                                {% for row in result1 %}
+						                                <option value="{{row.id}}">{{row.area}}</option>
+						                                {% endfor %}
+						                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                                <div class="form_group">
+                                                    <!-- <input type="search" class="form_control" placeholder="Search By Property Type" name="search" required>
+                                                    <i class="ti-ink-pen"></i> -->
+                                                    <select id="property_type" name="property_type" class="form-control form-control-lg">
+                                                    	<option>Select Proeprty Type</option>
+						                                <option value="Residential">Residential</option>
+                                						<option value="Commercial">Commercial</option>
+						                            </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                                <div class="form_group">
+                                                    <button class="main-btn icon-btn">Search Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock %}

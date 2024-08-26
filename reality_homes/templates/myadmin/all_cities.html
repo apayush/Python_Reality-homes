@@ -1,0 +1,36 @@
+{% extends 'myadmin/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>All Location</h5>
+            <!-- <span class="d-block m-t-5">use class <code>table-inverse</code> inside table element</span> -->
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-inverse">
+                    {% for row in result1 %}
+                    <tr>
+                      <td style="font-weight: bold;">{{row.id}}</td>
+                      <td>{{row.citys}}</td>
+                      <td><a href="/myadmin/edit_city/{{row.id}}">Edit</a></td>
+                      <td><a href="/myadmin/delete_city/{{row.id}}">Delete</a></td>
+                    </tr>
+                    
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% endblock %}

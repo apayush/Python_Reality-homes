@@ -1,0 +1,234 @@
+{% extends 'user/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="fioxen-add-listing pt-120 pb-120">
+<div class="container">
+<form method="post" action="/user/property_store" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="add-listing-form general-listing-form mb-60 wow fadeInUp">
+                <h4 class="title">Post Your Property</h4>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property For...</label>
+                            <select id="property_for" name="property_for" class="form-control form-control-lg">
+                                <option value="Sale">Sale</option>
+                                <option value="Rent">Rent</option>
+                                <option value="PG">PG</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Select Property Type</label>
+                            <select id="property_type" name="property_type" class="form-control form-control-lg">
+                                <option value="Residential">Residential</option>
+                                <option value="Commercial">Commercial</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Select Property Type</label>
+                            <select id="sub_property_type" name="sub_property_type" class="form-control form-control-lg">
+                                <option value="Flat/Apartment">Flat/Apartment</option>
+                                <option value="Bunglow/Villa">Bunglow/Villa</option>
+                                <option value="Plot/Land">Plot/Land</option>
+                                <option value="Row House">Row House</option>
+                                <option value="Farm House">Farm House</option>
+                                <option value="OTher">OTher</option>
+                                <option value="Shop">Shop</option>
+                                <option value="Office">Office</option>
+                                <option value="Shades">Shades</option>
+                                <option value="Storage">Storage</option>
+                                <option value="Industry">Industry</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <label class="form-label" for="form3Example1c">BedRooms</label>
+                        <div class="form-check" style="font-size: 20px;line-height: 2;">
+                           <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rooms" id="rooms" value="1" style="height:19px;" />
+                                <label class="form-check-label" for="rooms">1</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rooms" id="rooms" value="2" style="height:19px;"/>
+                                <label class="form-check-label" for="rooms">2</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rooms" id="rooms" value="3" style="height:19px;"/>
+                                <label class="form-check-label" for="rooms">3</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rooms" id="rooms" value="4" style="height:19px;"/>
+                                <label class="form-check-label" for="rooms">4</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="rooms" id="rooms" value="more" style="height:19px;"/>
+                                <label class="form-check-label" for="rooms">More</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property Name...</label>
+                            <input type="text" class="form_control" name="property_name" id="property_name" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property Price...</label>
+                            <input type="text" class="form_control" name="property_price" id="property_price" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mb-4">
+                        <label class="form-label" for="form3Example1c">Property Type...</label>
+                        <div class="form-check">
+                           <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="types" id="types" value="NA/Noc"/>
+                                <label class="form-check-label" for="types">NA/Noc</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="types" id="types" value="Power"/>
+                                <label class="form-check-label" for="types">Power</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 mb-4">
+                        <label class="form-label" for="form3Example1c">Facilities</label>
+                        <div class="form-check">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="facility[]" id="facility1" value="Lift"/>
+                                <label class="form-check-label" for="facility">Lift</label>
+                            </div>
+
+                           <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="facility[]" id="facility2" value="Garden"/>
+                                <label class="form-check-label" for="facility">Garden</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="facility[]" id="facility3" value="Swimming_pool"/>
+                                <label class="form-check-label" for="facility">Swimming pool</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="facility[]" id="facility4" value="24×7_water"/>
+                                <label class="form-check-label" for="facility">24×7 water</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Property Age...</label>
+                            <input type="text" class="form_control" id="property_age" name="property_age" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Maintenance</label>
+                            <input type="text" class="form_control" id="maintenance" name="maintenance" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Select City</label>
+                            <select id="city" name="city" class="form-control form-control-lg">
+                                {% for row in result %}
+                                <option value="{{row.id}}">{{row.citys}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Select Area</label>
+                            <select id="area" name="area" class="form-control form-control-lg">
+                                {% for row in result1 %}
+                                <option value="{{row.id}}">{{row.area}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Contact</label>
+                            <input type="text" class="form_control" id="contact" name="contact" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property Area in SQ.ft.</label>
+                            <input type="text" class="form_control" name="sq_area" id="sq_area" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property Address...</label>
+                            <textarea class="form_control" name="address" id="address"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form_group">
+                            <label class="form-label" for="form3Example1c">Add Property Description...</label>
+                            <textarea class="form_control" name="description" id="description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12" style="line-height: 1.5;">
+                        <div class="form_group" style="font-size: 15px;">
+                            <label class="d-block text-uppercase">
+                                Add Property Image
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="file" name="image" id="image" required>
+                        </div>
+                    </div>
+
+                </div>
+
+            <div class="button text-center mt-30">
+                <button class="main-btn">Add Property</button>
+            </div>
+
+            </div>
+            
+        </div>
+    </div>
+</form>
+</div>
+</section>
+
+
+{% endblock %}

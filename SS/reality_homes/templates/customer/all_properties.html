@@ -1,0 +1,70 @@
+{% extends 'customer/common/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="hero-area">
+    <div class="breadcrumbs-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="page-title">
+                        <h1 class="title">All Properties</h1>
+                        <ul class="breadcrumbs-link">
+                            <li><a href="/customer/home">Home</a></li>
+                            <li class="active">All Proeprty</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% for row in result %}
+
+<section class="fioxen-add-listing pt-50 pb-50">
+    <div class="container">
+        <div class="col-lg-8">
+            <div class="listing-list-wrapper">
+                <div class="listing-item listing-list-item-two wow fadeInUp">
+                    <div class="listing-thumbnail">
+                        <img src="/media/upload/{{row.property_image}}" alt="listing Image" style="height:275px;width: 345px;">
+                        <div class="thumbnail-meta d-flex justify-content-between align-items-center">
+                            <div class="meta-icon-title d-flex align-items-center">
+                                <div class="icon">
+                                    <i class="flaticon-government"></i>
+                                </div>
+                                <div class="title">
+                                    <h6>{{row.property_name}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listing-content" style="padding-top: 20px;">
+                        <h3 class="title"><a href="listing-details-1.html">{{row.sub_property_type}}</a></h3>
+                        <h3 class="title">{{row.rooms}}BHK {{row.sub_property_type}} For {{row.property_for}}</h3>
+                        <span class="price">₹ {{row.price}} Lac<h6>Area : {{row.area.area}}</h6></span>
+                        <span class="phone-meta"><i class="ti-tablet"></i><a href="tel:+982653652-05">{{row.contact}}</a></span>
+                        <div class="listing-meta">
+                            <ul>
+                                <li><span><i class="ti-location-pin"></i>{{row.address}}</span></li>
+                                <!-- <li><span><i class="ti-heart"></i><a href="#">Save</a></span></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="button mt-30">
+                    <!-- <button class="main-btn"><a href="/customer/add_images/{{row.id}}">Add More images</a></button> -->
+                    <button class="main-btn"><a href="/customer/view_property/{{row.id}}">View Details</a></button>
+                </div>
+        </div>
+    </div>
+</section>
+
+{% endfor %}
+
+
+{% endblock %}
